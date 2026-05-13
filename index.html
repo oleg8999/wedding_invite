@@ -1,21 +1,440 @@
- </section>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Екатерина и Олег</title>
 
-  <section class="gallery">
-    <img src="images/photo1.jpg">
-    <img src="images/photo2.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f8f5f1;
+      color: #2e2e2e;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('images/main.jpg') center/cover no-repeat;
+    }
+
+    .hero-content {
+      animation: fadeUp 1.5s ease;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      letter-spacing: 3px;
+      margin-bottom: 40px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 16px 28px;
+      border-radius: 100px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: 0.3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .title p {
+      font-size: 14px;
+      opacity: 0.7;
+      line-height: 1.7;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .info-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      line-height: 1.8;
+      opacity: 0.8;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 18px;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .time {
+      min-width: 65px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .dress-colors {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .color {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .countdown-item span {
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .countdown-item small {
+      margin-top: 4px;
+      opacity: 0.7;
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 24px;
+      background: white;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 50px 20px 70px;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 700px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 84px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Екатерина <br>& Олег</h1>
+      <p>25 Мая 2026</p>
+
+      <a href="#form" class="button">
+        Подтвердить присутствие
+      </a>
+    </div>
   </section>
 
-  <section class="form">
-    <h2>Подтвердите присутствие</h2>
+  <section>
+    <div class="container">
 
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfsys7p2udiI2gQ3m90-fSPc8bThOLrywT1HhQVqWl_OA0XCg/viewform?usp=header"
-      width="100%"
-      height="900"
-      frameborder="0">
-    </iframe>
+      <div class="title">
+        <h2>Мы женимся</h2>
+        <p>
+          Мы будем счастливы разделить с вами один из самых важных дней нашей жизни.
+        </p>
+      </div>
 
+      <div class="countdown">
+        <div class="countdown-item">
+          <span id="days">0</span>
+          <small>дней</small>
+        </div>
+
+        <div class="countdown-item">
+          <span id="hours">0</span>
+          <small>часов</small>
+        </div>
+
+        <div class="countdown-item">
+          <span id="minutes">0</span>
+          <small>минут</small>
+        </div>
+      </div>
+
+    </div>
   </section>
+
+  <section>
+    <div class="container">
+
+      <div class="title">
+        <h2>Место</h2>
+      </div>
+
+      <div class="info-card">
+        <h3>Коттедж ебанутейший</h3>
+
+        <p>
+          Посёлок Восход. Адрес Кирова<br>
+          Начало в 16:00
+        </p>
+
+        <br>
+
+        <a
+          class="button"
+          href="https://maps.google.com"
+          target="_blank"
+        >
+          Открыть карту
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <div class="title">
+        <h2>Программа дня</h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="time">16:00</div>
+
+          <div>
+            <h3>Сбор гостей</h3>
+            <p>Welcome drink и знакомство</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time">17:00</div>
+
+          <div>
+            <h3>Церемония</h3>
+            <p>Главный момент нашего дня</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time">18:00</div>
+
+          <div>
+            <h3>Банкет</h3>
+            <p>Ужин, музыка и танцы</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <div class="title">
+        <h2>Dress code</h2>
+        <p>
+          Нам будет приятно, если вы поддержите цветовую гамму вечера.
+        </p>
+      </div>
+
+      <div class="dress-colors">
+        <div class="color" style="background:#d8c3a5"></div>
+        <div class="color" style="background:#ede0d4"></div>
+        <div class="color" style="background:#c9ada7"></div>
+        <div class="color" style="background:#9a8c98"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <div class="title">
+        <h2>Наши фотографии</h2>
+      </div>
+
+      <div class="gallery">
+        <img src="images/photo1.jpg" alt="photo">
+        <img src="images/photo2.jpg" alt="photo">
+        <img src="images/photo3.jpg" alt="photo">
+        <img src="images/photo4.jpg" alt="photo">
+      </div>
+
+    </div>
+  </section>
+
+  <section id="form">
+    <div class="container">
+
+      <div class="title">
+        <h2>RSVP</h2>
+        <p>
+          Пожалуйста, подтвердите своё присутствие до 21 июля.
+        </p>
+      </div>
+
+      <iframe
+        src="https://docs.google.com/forms/d/e/ВАША_ССЫЛКА/viewform?embedded=true"
+        height="900"
+      >
+      </iframe>
+
+    </div>
+  </section>
+
+  <div class="footer">
+    С любовью, Екатерина и Олег
+  </div>
+
+  <script>
+    const weddingDate = new Date('2026-07-25T16:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours;
+      document.getElementById('minutes').innerText = minutes;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  </script>
 
 </body>
 </html>
