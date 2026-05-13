@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fdfaf6;
+  color: #333;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero {
+  height: 100vh;
+  background: url('images/photo1.jpg') center/cover;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
+.gallery img {
+  width: 300px;
+  margin: 10px;
+  border-radius: 12px;
+}
