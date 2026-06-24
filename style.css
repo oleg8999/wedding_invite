@@ -12,7 +12,7 @@ section {
 
 .hero {
   height: 100vh;
-  background: url('images/photo`.jpg') center/contain no-repeat;
+  background: url('images/main3.jpg') center/contain no-repeat;
   color: white;
 
   display: flex;
