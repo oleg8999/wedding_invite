@@ -12,12 +12,45 @@ section {
 
 .hero {
   height: 100vh;
-  background: url('images/photo1.jpg') center/cover;
-  color: white;
+
+  position: relative;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  color: white;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  background: black;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
